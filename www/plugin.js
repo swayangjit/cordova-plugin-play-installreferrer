@@ -1,8 +1,8 @@
 var exec = require('cordova/exec');
 
-var PLUGIN_NAME = 'sbutility';
+var PLUGIN_NAME = 'installReferrer';
 
-var sbutility = {
+var installReferrer = {
     getCampaignParameterInfo: function (onSuccess, onError) {
         exec(onSuccess, onError, PLUGIN_NAME, "getCampaignParameterInfo", ["getCampaignParameterInfo"]);
     },
@@ -10,3 +10,5 @@ var sbutility = {
         exec(onSuccess, onError, PLUGIN_NAME, "clearCampaignParameterInfo", ["clearCampaignParameterInfo"]);
     },
 }
+
+module.exports = installReferrer;

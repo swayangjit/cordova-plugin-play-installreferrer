@@ -7,15 +7,15 @@
     <license>MIT</license>
     <keywords></keywords>
      <framework src="build-extras.gradle" custom="true" type="gradleReference"/>
-    <js-module src="www/plugin.js" name="SBUTILITY">
-        <clobbers target="sbutility" />
+    <js-module src="www/plugin.js" name="INSTALLREFERERR">
+        <clobbers target="installReferrer" />
     </js-module>
     
     <!-- android -->
     <platform name="android">
 
       <config-file target="res/xml/config.xml" parent="/*">
-        <feature name="sbutility">
+        <feature name="installReferrer">
           <param name="android-package" value="campaignParameter" />
           <param name="onload" value="true" />
         </feature>
