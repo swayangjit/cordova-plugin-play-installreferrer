@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-plugin-installreferrer"
+    version="0.0.1">
+    <name>A native  plugin for utilty methods supported by installreferer App</name>
+    <description></description>
+    <license>MIT</license>
+    <keywords></keywords>
+     <framework src="build-extras.gradle" custom="true" type="gradleReference"/>
+    <js-module src="www/plugin.js" name="SBUTILITY">
+        <clobbers target="sbutility" />
+    </js-module>
+    
+    <!-- android -->
+    <platform name="android">
+
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="sbutility">
+          <param name="android-package" value="campaignParameter" />
+          <param name="onload" value="true" />
+        </feature>
+      </config-file>
+<config-file target="AndroidManifest.xml" parent="application/activity[@android:name='MainActivity']" mode="merge">
+      <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="deeplink" android:scheme="org.ekstep.installreferer" />
+            </intent-filter>
+</config-file>
+      <source-file src="src/android/CampaignParameter.java" target-dir="src/android" />
+        <source-file src="src/android/PlayStoreInstallReferrer.java" target-dir="src/android" />
+        <source-file src="src/android/InstallReferrerListener.java" target-dir="src/android" />
+
+    </platform>
+
+    <platform name="browser">
+        <config-file target="config.xml" parent="/*">
+            <feature name="DB">
+                <param name="browser-package" value="utility" />
+            </feature>
+        </config-file>
+        <js-module src="src/browser/DBProxy.js" name="DBProxy">
+            <runs/>
+        </js-module>
+    </platform>
+</plugin>
+
